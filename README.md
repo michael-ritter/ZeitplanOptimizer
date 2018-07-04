@@ -64,7 +64,7 @@ Jetzt können Sie normalerweise die Zeitpläne öffnen:
 
 # Wenn alles funktioniert hat können Sie jetzt anfangen, ihre eigene Inputs zu geben!
 
-###
-# (Bitte beachten Sie die Fehlermeldung, nachdem Sie auf "Data Loader" klicken: 
-# Es ist nämlich sehr schwer, die ganze Input Datei ohne Fehler zu schreiben)
-###
+
+# (Bitte beachten Sie die Fehlermeldung, nachdem Sie auf "Data Loader" klicken: #
+# Es ist nämlich sehr schwer, die ganze Input Datei ohne Fehler zu schreiben) #
+
