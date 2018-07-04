@@ -30,7 +30,7 @@ Einige Python Skripts sind gebraucht, um Excel Tabellen zu bearbeiten und andere
 Das ist ein “open source“ (also frei) Solver, von der Coin-OR Projekt. 
 
 -> Am besten das ganze Projekt aus https://www.coin-or.org/download/binary/OptimizationSuite/ herunterladen. Da gibt es viele Möglichkeiten, wähle einfache die späteste Windows Version.
--> Nach dem Download, öffne das Ordner und extrahiere es in einem beliebigen Ordner
+-> Nach dem Download, öffnen Sie das Ordner und extrahieren Sie es in einem beliebigen Ordner
 
 ## Den Programm selbst
 -> Den können Sie jetzt aus https://github.com/AmbroiseIdoine/ZeitplanOptimizer herunterladen
