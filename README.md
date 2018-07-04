@@ -1,11 +1,9 @@
 # ZeitplanOptimizer
 A tool for creating customized timetables (for schools with special requirements)
 
-#############################################################
-#                                                           #
-#     Anleitung zu 'Stundenplan Optimizer' Installation     #
-#                                                           #
-#############################################################
+
+# Anleitung zu 'Stundenplan Optimizer' Installation
+
 
 ## Einige externe Programme werden verwendet:
 
