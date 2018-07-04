@@ -1,20 +1,20 @@
 # ZeitplanOptimizer
 A tool for creating customized timetables (for schools with special requirements)
 
+#############################################################
+#                                                           #
+#     Anleitung zu 'Stundenplan Optimizer' Installation     #
+#                                                           #
+#############################################################
 
-###                                                       ###
-###   Anleitung zu 'Stundenplan Optimizer' Installation   ###
-###                                                       ###
+## Einige externe Programme werden verwendet:
 
-
-# Einige externe Programme werden verwendet:
-
-# Python
+## Python
 Wenn Sie noch nicht Python installiert haben, installieren Sie am besten miniconda (Das ist eine leichte Version von Anaconda, ein Version Manager für Python)
 
 -> Von https://conda.io/miniconda.html die entsprechende Version von Miniconda installieren. (Download instruction folgen)
 
-# Python package
+## Python package
 Einige Python Skripts sind gebraucht, um Excel Tabellen zu bearbeiten und anderes tun:
 -	Pyomo (Modelling framework)
 -	Openpyxl (read excel)
@@ -28,13 +28,13 @@ Einige Python Skripts sind gebraucht, um Excel Tabellen zu bearbeiten und andere
    Pip install xlsxwriter
    Pip install argparse
 
-# Cbc solver
+## Cbc solver
 Das ist ein “open source“ (also frei) Solver, von der Coin-OR Projekt. 
 
 -> Am besten das ganze Projekt aus https://www.coin-or.org/download/binary/OptimizationSuite/ herunterladen. Da gibt es viele Möglichkeiten, wähle einfache die späteste Windows Version.
 -> Nach dem Download, öffne das Ordner und extrahiere es in einem beliebigen Ordner
 
-# Den Programm selbst
+## Den Programm selbst
 -> Den können Sie jetzt aus https://github.com/AmbroiseIdoine/ZeitplanOptimizer herunterladen
 
 In dem gleichen Ordner finden sich verschiedene Datei:
@@ -45,7 +45,7 @@ In dem gleichen Ordner finden sich verschiedene Datei:
 -	Main2.6.mos: Programm in Mosel (Nicht benutzt)
 -	run_command.bat: batch Skript um den Model zu starten
 
-# Prüfen, dass es läuft:
+## Prüfen, dass es läuft:
 
 -> Öffnen Sie den Excel Datei „Program.xlms“ (bitte Makros aktivieren!)
 
@@ -62,9 +62,9 @@ Jetzt können Sie normalerweise die Zeitpläne öffnen:
 
 -> Klicken Sie einfach auf eine der 3 Buttons recht um den entsprechende Zeitplan im Excel zu öffnen
 
-# Wenn alles funktioniert hat können Sie jetzt anfangen, ihre eigene Inputs zu geben!
+## Wenn alles funktioniert hat können Sie jetzt anfangen, ihre eigene Inputs zu geben!
 
 
-# (Bitte beachten Sie die Fehlermeldung, nachdem Sie auf "Data Loader" klicken: #
-# Es ist nämlich sehr schwer, die ganze Input Datei ohne Fehler zu schreiben) #
+### (Bitte beachten Sie die Fehlermeldung, nachdem Sie auf "Data Loader" klicken: #
+### Es ist nämlich sehr schwer, die ganze Input Datei ohne Fehler zu schreiben) #
 
