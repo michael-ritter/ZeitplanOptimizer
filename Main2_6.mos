@@ -12,10 +12,10 @@ parameters
 	PartnerLehrerGewicht=1;
 	WechselGewicht=4;
 	SportGewicht=1;
-	DataFile = "./school_data.dat";
-	OutputFile = "./X_res.csv";
+	DataFile = "./model_data.dat";
+	OutputFile = "./X_res5.csv";
 	LogFile= "./model_log.txt";
-	max_runtime = 200;
+	max_runtime = 3600;
 	max_rel_gap = 0.05; !not used for the moment
 end-parameters
 
@@ -53,12 +53,14 @@ declarations
 	nUbergreifendMax: integer;
 	nVorgabenMax: integer;
 	nRaum: integer ;
+	nGGStunden: integer;
 end-declarations
 
 initializations from DataFile
 	nUbergreifendMax;
 	nVorgabenMax;
 	nRaum;
+	nGGStunden;
 end-initializations
 
 declarations
@@ -80,7 +82,7 @@ declarations
 	FachDauer: array(Faecher) of integer ;
 	TandemNummer: array(Faecher) of integer;	!wie viele Tandemlehrer gebraucht werden
 	Gleichgultig: array(Klassen) of set of set of string;	!faecher die umgetauscht werden koennen
-	GleichgultigStunden: array(Klassen) of set of real ;	!wie viele stunden muessen insgesamt gemacht werden fuer die letzigen Gruppen
+	GleichgultigStunden: array(Klassen,1..nGGStunden) of real ;	!wie viele stunden muessen insgesamt gemacht werden fuer die letzigen Gruppen
 	Ubergreifend: dynamic array(Faecher,1..nUbergreifendMax) of set of string ; !Klassen zu die ein Fach zusammen unterrichtet wird
 	GeteilteFach: array(Faecher) of integer ;	!in wie viele Gruppe soll die Klasse geteilt sein, um diesen Fach zu unterrichten
 	GleichzeitigGeteilteFach: set of string ; 	!wenn die Klasse geteilt wird, sollten diese Faecher trozdem gleichzeitig unterrichtet werden
@@ -142,6 +144,7 @@ initializations from DataFile
 	VorgabenMitLehrer ;
 	VorgabenMLZeiten ;
 end-initializations
+
 
 ! Modell
 
@@ -307,17 +310,16 @@ end-do
 !gleichgultige Faecher mussen zusaetzliche Unterrichtstunden machen
 declarations
 	tempGG: set of set of string;
-	tempGGstunde: set of real;
 end-declarations
 
 forall(k in Klassen)do
 	tempGG:=Gleichgultig(k);
-	tempGGstunde:=GleichgultigStunden(k);
 	forall(gruppe in 1..getsize(tempGG))do
 		sum(l in Lehrer,z in Zeitslots, f in tempGG(gruppe))(x(f,k,l,z)*FachDauer(f)/GeteilteFach(f)) 
-		>= tempGGstunde(gruppe) + sum(f in tempGG(gruppe))UnterrichtStunden(k,f);
+		>= GleichgultigStunden(k,gruppe) + sum(f in tempGG(gruppe))UnterrichtStunden(k,f);
 	end-do
 end-do
+
 
 
 ! Tandemlehrer wird gebraucht
@@ -588,7 +590,7 @@ def_out:= getfid(F_OUTPUT);
 fopen(OutputFile,F_OUTPUT);
 writeln("Faecher,Klassen,Lehrer,Zeitslots,x");
 forall (f in Faecher, k in Klassen, l in Lehrer, z in Zeitslots| exists(x(f,k,l,z))) do
-	if (x(f,k,l,z).sol = 1) then
+	if (x(f,k,l,z).sol > 0) then
 		writeln(""+f+","+k+","+l+","+z+",1");
 	end-if
 end-do
